@@ -1,3 +1,4 @@
+let inputPlayerName = new InputPlayerName();
 let boardEraser = new BoardEraser();
 let inputBoardSize = new InputBoardSize();
 let winnerNotifier = new WinnerNotifier(boardEraser);
@@ -8,7 +9,8 @@ let gameView = new GameView(boardPrinter,
                             buttonsEventHandler,
                             buttonUpdater,
                             winnerNotifier,
-                            inputBoardSize);
+                            inputBoardSize,
+                            inputPlayerName);
 let victoryChecker = new VictoryChecker();
 let gameSolvableChecker = new GameSolvableChecker();
 let squareMovementHandler = new SquareMovementHandler();
