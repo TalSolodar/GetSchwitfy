@@ -1,9 +1,15 @@
 class SquareMovementHandler{
 
-    constructor(numberLines , numberSquaresInLine){
+    constructor(){
         this.gameBoard = [];
-        this.numberSquaresInLine = numberSquaresInLine;
+    }
+    
+    SetNumberLines(numberLines){
         this.numberLines = numberLines;
+    }
+
+    SetNumberSquaresInLine(numberSquaresInLine){
+        this.numberSquaresInLine = numberSquaresInLine;
     }
 
     TryMoveSquare(numberPressedSquare){
@@ -33,7 +39,6 @@ class SquareMovementHandler{
     }
 
     FindEmptySquareIndex(){
-
         for(let line = 0 ; line < this.gameBoard.length; line ++){
             
             for(let indexInLine = 0; indexInLine < this.gameBoard[line].length; indexInLine++){
