@@ -1,11 +1,12 @@
 class Square{
 
-    constructor(number){
+    constructor(number, maximumSquareNumber){
         this.number = number;
+        this.maximumSquareNumber = maximumSquareNumber;
     }
 
     PrintSquareDetails(){
-        if(this.number == 4){
+        if(this.number == this.maximumSquareNumber){
             return "X";
         }
         return this.number;
