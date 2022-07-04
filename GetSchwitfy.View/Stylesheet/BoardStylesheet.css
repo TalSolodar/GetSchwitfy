@@ -1,0 +1,17 @@
+button{
+    border-color:  black;
+    margin: 1em;
+    padding: 3rem;
+    background-color: yellow;
+    display: flex;
+    
+}
+
+span{
+    font-size: 3rem;
+}
+
+div{
+    display: flex;
+    text-align: center;
+}
