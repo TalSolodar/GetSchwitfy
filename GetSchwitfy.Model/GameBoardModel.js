@@ -1,7 +1,10 @@
 class GameBoard{
 
     constructor(numberLinesInBoard){
-        this.squares = Array.from(Array(numberLinesInBoard), ()=> new Array(numberLinesInBoard));
+        this.squares= [];
+        for(let i = 0 ; i < numberLinesInBoard; i++){
+            this.squares.push([]);
+        }
     }
 
     addSquare(square, numberLine, numberIndexInLine){
