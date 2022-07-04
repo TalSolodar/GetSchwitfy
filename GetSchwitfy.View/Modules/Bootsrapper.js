@@ -1,5 +1,6 @@
+let boardEraser = new BoardEraser();
 let inputBoardSize = new InputBoardSize();
-let winnerNotifier = new WinnerNotifier();
+let winnerNotifier = new WinnerNotifier(boardEraser);
 let buttonUpdater = new ButtonUpdater();
 let buttonsEventHandler = new ButtonEventHandler();
 let boardPrinter = new BoardPrinter();

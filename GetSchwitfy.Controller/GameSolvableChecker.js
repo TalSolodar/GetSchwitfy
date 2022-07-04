@@ -14,14 +14,24 @@ class GameSolvableChecker{
     }
 
     IsGameWithEvenNumberLinesSolvable(gameBoardSquares){
-        let indexEmptySquare = gameBoardSquares.indexOf(this.numberLines*this.numberSquaresInLine);
-        let squares = gameBoardSquares.slice(indexEmptySquare, gameBoardSquares.length)
-        
-        if(squares.length == 0){
-            return true;
-        }
+        let indexEmptySquare = -1;
+        let opposites = [];
 
-        let opposites = this.CreateCounterOpposite(gameBoardSquares);
+        for(let i = 0 ; i< gameBoardSquares.length; i++){
+            if(gameBoardSquares[i].number == this.numberLines*this.numberSquaresInLine){
+                indexEmptySquare = i ;
+            }
+        }
+        
+        let squares = gameBoardSquares.slice(indexEmptySquare +1, gameBoardSquares.length)
+        console.log(squares);
+
+        if(squares.length != 0){
+            opposites = this.CreateCounterOpposite(squares);
+        }
+        
+        opposites.push(this.FindEmptySquareLine(gameBoardSquares));
+        console.log(opposites);
         let isSolvable = this.IsCounterOppositeEven(opposites);
 
         return isSolvable;
@@ -61,5 +71,19 @@ class GameSolvableChecker{
         let IsCountOppositeEven = counterOpposites % 2 == 0 ;
 
         return IsCountOppositeEven;
+    }
+
+    FindEmptySquareLine(gameBoard){
+        let indexOfEmptySquare = -1;
+        
+        for(let i = 0 ; i < gameBoard.length; i++){
+            if(gameBoard[i].number == this.numberLines*this.numberSquaresInLine){
+                indexOfEmptySquare = i;
+            }
+        }
+        let emptySquareLine = Math.floor(indexOfEmptySquare / this.numberLines);
+        emptySquareLine++;
+
+        return emptySquareLine;
     }
 }

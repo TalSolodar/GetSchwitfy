@@ -19,11 +19,14 @@ class GameController{
     }
 
     HandleButtonEvent(numberButton, buttons){
+        console.log("here");
         this.squareMovementHandler.gameBoard = this.gameBoard.squares;
         this.squareMovementHandler.TryMoveSquare(numberButton);
         this.gameView.buttonUpdater.UpdateButtonsValues(squareMovementHandler.gameBoard, buttons);
         if(this.victoryChecker.IsBoardSolved(this.gameBoard.squares)){
             this.gameView.winnerNotifier.NotifyVictory();
+            this.gameView.boardPrinter.buttons = [];
+            this.CreateGameBoard();
         }
     }
 }
