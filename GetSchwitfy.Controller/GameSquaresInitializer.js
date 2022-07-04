@@ -1,17 +1,16 @@
-const NumberLines = 2;
-const NumberSquaresInLine = 2; 
-
-class GameSquaresInitializer{
+ class GameSquaresInitializer{
 
     constructor(gameSolvableChecker){
         this.squaresNumbers = [];
         this.gameSolvableChecker = gameSolvableChecker;
     }
 
-    InitializeGameBoard(){
+    InitializeGameBoard(numberLines, numberSquaresInLine){
+        this.numberLines = numberLines;
+        this.numberSquaresInLine = numberSquaresInLine;
         let gameBoard = this.CreateBoard();
     
-        while(!this.gameSolvableChecker.IsGameSolvableׂׂ(gameBoard)){
+        while(!this.gameSolvableChecker.IsGameSolvableׂׂ(gameBoard, this.numberLines, this.numberSquaresInLine)){
             gameBoard = this.CreateBoard();
         }
 
@@ -20,11 +19,11 @@ class GameSquaresInitializer{
 
     CreateBoard(){
         let square = null;
-        let gameBoard = new GameBoard(NumberLines);
+        let gameBoard = new GameBoard(this.numberLines);
         
-        for(let i = 0; i < NumberLines; i++){
+        for(let i = 0; i < this.numberLines; i++){
 
-            for(let j = 0; j < NumberSquaresInLine; j++){
+            for(let j = 0; j < this.numberSquaresInLine; j++){
                 square = this.CreateUniqueSquare();
                 gameBoard.addSquare(square,i,j);        
             }
@@ -34,7 +33,7 @@ class GameSquaresInitializer{
     }
 
     RandomNumber(){
-        let maxRandomNumber = NumberLines * NumberSquaresInLine;
+        let maxRandomNumber = this.numberLines * this.numberSquaresInLine;
         let squareNumber = Math.floor(Math.random()*maxRandomNumber + 1);
 
         return squareNumber;
@@ -48,8 +47,9 @@ class GameSquaresInitializer{
         }
 
         this.squaresNumbers.push(squareRandomNumber);
-        let square = new Square(squareRandomNumber);
-        
+        let maximumSquareNumber = this.numberLines*this.numberSquaresInLine;
+        let square = new Square(squareRandomNumber, maximumSquareNumber);
+
         return square;
     }
 }
