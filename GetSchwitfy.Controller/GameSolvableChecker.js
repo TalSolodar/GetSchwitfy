@@ -24,14 +24,12 @@ class GameSolvableChecker{
         }
         
         let squares = gameBoardSquares.slice(indexEmptySquare +1, gameBoardSquares.length)
-        console.log(squares);
 
         if(squares.length != 0){
             opposites = this.CreateCounterOpposite(squares);
         }
         
         opposites.push(this.FindEmptySquareLine(gameBoardSquares));
-        console.log(opposites);
         let isSolvable = this.IsCounterOppositeEven(opposites);
 
         return isSolvable;
