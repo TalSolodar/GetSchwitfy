@@ -3,6 +3,7 @@ class Game{
         this.playerName = playerName;
         this.boardSize = boardSize;
         this.date = this.GetCurrentDate();
+        this.initialTime = performance.now();
     }
 
     GetCurrentDate(){
@@ -10,8 +11,14 @@ class Game{
         let day = String(today.getDate()).padStart(2, '0');
         let month = String(today.getMonth() + 1).padStart(2, '0'); 
         let year = today.getFullYear();
-        currentDate = day + '/' + month + '/' + year;
+        let currentDate = day + '/' + month + '/' + year;
         
         return currentDate;
+    }
+
+    EndGame(){
+        console.log(this.playerName);
+        let endTime = performance.now()
+        this.GameTimeIsMiliSeconds = endTime = this.initialTime;
     }
 }
