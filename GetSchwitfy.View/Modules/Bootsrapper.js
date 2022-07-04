@@ -1,3 +1,4 @@
+let gameModel = new GamesContainer();
 let inputPlayerName = new InputPlayerName();
 let boardEraser = new BoardEraser();
 let inputBoardSize = new InputBoardSize();
@@ -18,4 +19,5 @@ let gameSquaresInitializer = new GameSquaresInitializer(gameSolvableChecker);
 let gameController = new GameController(gameSquaresInitializer,
                                         gameView,
                                         squareMovementHandler,
-                                        victoryChecker);
+                                        victoryChecker,
+                                        gameModel);
