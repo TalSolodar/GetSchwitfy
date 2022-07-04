@@ -1,8 +1,11 @@
 class GameSolvableChecker{
 
-    IsGameSolvableׂׂ(gameBoard){
+    IsGameSolvableׂׂ(gameBoard, numberLines, numberSquaresInLine){
+        this.numberLines = numberLines;
+        this.numberSquaresInLine = numberSquaresInLine;
         let gameBoardSquares = gameBoard.squares.flat(); 
-        if(NumberLines % 2 == 0){
+        
+        if(this.numberLines % 2 == 0){
             return this.IsGameWithEvenNumberLinesSolvable(gameBoardSquares);
         }
         else{
@@ -11,7 +14,7 @@ class GameSolvableChecker{
     }
 
     IsGameWithEvenNumberLinesSolvable(gameBoardSquares){
-        let indexEmptySquare = gameBoardSquares.indexOf(NumberLines*NumberSquaresInLine);
+        let indexEmptySquare = gameBoardSquares.indexOf(this.numberLines*this.numberSquaresInLine);
         let squares = gameBoardSquares.slice(indexEmptySquare, gameBoardSquares.length)
         
         if(squares.length == 0){
