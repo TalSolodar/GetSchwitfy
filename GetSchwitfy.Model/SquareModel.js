@@ -5,6 +5,9 @@ class Square{
     }
 
     PrintSquareDetails(){
+        if(this.number == 4){
+            return "X";
+        }
         return this.number;
     }
 }
