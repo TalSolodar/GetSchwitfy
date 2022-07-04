@@ -9,7 +9,10 @@ class GameController{
     }
 
     CreateGameBoard(){
-        this.gameBoard = this.gameSquaresInitializer.InitializeGameBoard();
+        let boardSize = this.gameView.inputBoardSize.GetBoardSize();
+        this.gameBoard = this.gameSquaresInitializer.InitializeGameBoard(boardSize, boardSize);
+        this.squareMovementHandler.SetNumberLines(boardSize);
+        this.squareMovementHandler.SetNumberSquaresInLine(boardSize);
         this.gameView.boardPrinter.PrintSquares(this.gameBoard.squares);
         let buttons = this.gameView.boardPrinter.buttons;
         this.gameView.buttonsEventHandler.AddButtonsEventListener(buttons, this);
